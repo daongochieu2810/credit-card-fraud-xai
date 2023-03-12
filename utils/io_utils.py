@@ -693,7 +693,7 @@ def log_graph2(adj, batch_num_nodes, writer, epoch, batch_idx, assign_tensor=Non
         ax = plt.subplot(2, 2, i + 1)
         num_nodes = batch_num_nodes[batch_idx[i]]
         adj_matrix = adj[batch_idx[i], :num_nodes, :num_nodes].cpu().data.numpy()
-        G = nx.from_numpy_matrix(adj_matrix)
+        G = nx.from_numpy_array(adj_matrix)
         nx.draw(
             G,
             pos=nx.spring_layout(G),
@@ -719,7 +719,7 @@ def log_graph2(adj, batch_num_nodes, writer, epoch, batch_idx, assign_tensor=Non
     #    ax = plt.subplot(2, 2, i+1)
     #    num_nodes = batch_num_nodes[batch_idx[i]]
     #    adj_matrix = adj[batch_idx[i], :num_nodes, :num_nodes].cpu().data.numpy()
-    #    G = nx.from_numpy_matrix(adj_matrix)
+    #    G = nx.from_numpy_array(adj_matrix)
     #    nx.draw(G, pos=nx.spring_layout(G), with_labels=False, node_color='#336699',
     #            edge_color='grey', width=0.5, node_size=25,
     #            alpha=0.8)
@@ -747,7 +747,7 @@ def log_graph2(adj, batch_num_nodes, writer, epoch, batch_idx, assign_tensor=Non
         label = label[: batch_num_nodes[batch_idx[i]]]
         node_colors = all_colors[label]
 
-        G = nx.from_numpy_matrix(adj_matrix)
+        G = nx.from_numpy_array(adj_matrix)
         nx.draw(
             G,
             pos=nx.spring_layout(G),

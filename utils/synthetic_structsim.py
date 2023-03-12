@@ -29,7 +29,7 @@ def clique(start, nb_nodes, nb_to_remove=0, role_start=0):
     """
     a = np.ones((nb_nodes, nb_nodes))
     np.fill_diagonal(a, 0)
-    graph = nx.from_numpy_matrix(a)
+    graph = nx.from_numpy_array(a)
     edge_list = graph.edges().keys()
     roles = [role_start] * nb_nodes
     if nb_to_remove > 0:

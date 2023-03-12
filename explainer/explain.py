@@ -245,7 +245,7 @@ class Explainer:
         denoised_ref_feat = np.array(
             [G_ref.nodes[node]["feat"] for node in G_ref.nodes()]
         )
-        denoised_ref_adj = nx.to_numpy_matrix(G_ref)
+        denoised_ref_adj = nx.to_numpy_array(G_ref)
         # ref center node
         ref_node_idx = list(G_ref.nodes()).index(new_ref_idx)
 
@@ -255,7 +255,7 @@ class Explainer:
         denoised_curr_feat = np.array(
             [G_curr.nodes[node]["feat"] for node in G_curr.nodes()]
         )
-        denoised_curr_adj = nx.to_numpy_matrix(G_curr)
+        denoised_curr_adj = nx.to_numpy_array(G_curr)
         # curr center node
         curr_node_idx = list(G_curr.nodes()).index(new_curr_idx)
 
@@ -310,7 +310,7 @@ class Explainer:
             pred_all.append(pred)
             real_all.append(real)
             denoised_feat = np.array([G.nodes[node]["feat"] for node in G.nodes()])
-            denoised_adj = nx.to_numpy_matrix(G)
+            denoised_adj = nx.to_numpy_array(G)
             graphs.append(G)
             feats.append(denoised_feat)
             adjs.append(denoised_adj)
@@ -435,7 +435,7 @@ class Explainer:
                 idx_new, sub_adj, sub_feat, sub_label, neighbors = self.extract_neighborhood(
                     idx, graph_idx
                 )
-                G = nx.from_numpy_matrix(sub_adj)
+                G = nx.from_numpy_array(sub_adj)
                 node_colors = [1 for i in range(G.number_of_nodes())]
                 node_colors[idx_new] = 0
                 # node_color='#336699',

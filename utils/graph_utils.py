@@ -36,7 +36,7 @@ class GraphSampler(torch.utils.data.Dataset):
         self.feat_dim = G_list[0].nodes[existing_node]["feat"].shape[0]
 
         for G in G_list:
-            adj = np.array(nx.to_numpy_matrix(G))
+            adj = np.array(nx.to_numpy_array(G))
             if normalize:
                 sqrt_deg = np.diag(
                     1.0 / np.sqrt(np.sum(adj, axis=0, dtype=float).squeeze())
