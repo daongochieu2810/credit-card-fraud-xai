@@ -272,6 +272,11 @@ def train_node_classifier(G, labels, model, args, writer=None):
     test_idx = idx[num_train:]
 
     data = gengraph.preprocess_input_graph(G, labels)
+    print(data)
+    print(data['adj'].shape)
+    print(data['labels'].shape)
+    print(data['feat'].shape)
+    return
     labels_train = torch.tensor(data["labels"][:, train_idx], dtype=torch.long)
     adj = torch.tensor(data["adj"], dtype=torch.float)
     x = torch.tensor(data["feat"], requires_grad=True, dtype=torch.float)
@@ -595,7 +600,6 @@ def syn_task1(args, writer=None):
     )
     print(len(G.nodes))
     print(len(labels))
-    return
     num_classes = max(labels) + 1
 
     if args.method == "att":
